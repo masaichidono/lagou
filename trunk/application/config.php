@@ -244,7 +244,7 @@ return [
         'username' => '18814182477@163.com',
         'pwd'      => 'lonely85168908',
         'to_user'  => array(
-            'offcn' => '335154882@qq.com',
+            'offcn' => '1422810222@qq.com',
             'lagou' => '335154882@qq.com',
         )
     ),
@@ -253,7 +253,7 @@ return [
     // +----------------------------------------------------------------------
     'steal_url'    => [
         'offcn' => 'http://www.offcn.com/ylws/ksxx/p21.html',
-        'lagou' => 'https://www.lagou.com/jobs/list_PHP?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E#order'
+        'lagou' => 'https://www.lagou.com/jobs/positionAjax.json?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E&needAddtionalResult=false'
     ],
     'lagou_detail' => 'https://www.lagou.com/jobs/',
     'lagou_keys'   => array(

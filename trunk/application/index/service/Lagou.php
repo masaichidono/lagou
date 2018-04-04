@@ -34,20 +34,15 @@ class Lagou
     public function steal()
     {
         $steal_web = Config::get('steal_url');
-        $steal_arr = array(
-            'offcn' => 'offcn',
-            'lagou' => 'lagou',
-        );
         $data = [];
         foreach ($steal_web as $key => $url) {
             if (!isset($data[$key])) {
                 $data[$key] = [];
             }
             //测试，跳过offcn数据
-            $temp     = $steal_arr[$key];
-            $tmp_data = $this->$temp($url);
+            $tmp_data = $this->$key($url);
             if ($tmp_data) {
-                $data[$key] = array_merge($data[$key], $this->$temp($url));
+                $data[$key] = array_merge($data[$key], $tmp_data);
             } else {
                 echo $this->error;
             }
@@ -127,26 +122,29 @@ class Lagou
      * 获取拉钩网的php招聘信息数据
      */
     public function lagou ( $url ) {
-            $url = 'https://www.lagou.com/jobs/positionAjax.json?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E&needAddtionalResult=false';
-            $curl = new Curl();
-            $curl->setUserAgent('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36');
-            $data = array(
-                'first' => true,
-                'pn'    => 1,
-                'kd'    => 'PHP',
-            );
-            $curl->setHeader('Origin', 'https://www.lagou.com');
-            $curl->setHeader('Host', 'www.lagou.com');
-            $curl->setHeader('Referer', 'https://www.lagou.com/jobs/list_PHP?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E');
-            $curl->post($url, $data);
-            if ($curl->error) {
-                $this->error = $curl->error_message . '[' . $curl->error_code . ']';
-                return false;
-            }
-            $data = json_decode($curl->response, true);
+        $curl = new Curl();
+        $curl->setUserAgent('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36');
+        $data = array(
+            'first' => true,
+            'pn'    => 1,
+            'kd'    => 'PHP',
+        );
+        $curl->setHeader('Origin', 'https://www.lagou.com');
+        $curl->setHeader('Host', 'www.lagou.com');
+        $curl->setHeader('Referer', 'https://www.lagou.com/jobs/list_PHP?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E');
+        $curl->post($url, $data);
+        if ($curl->error) {
+            $this->error = $curl->error_message . '[' . $curl->error_code . ']';
+            return false;
+        }
+        $data = json_decode($curl->response, true);
         if (!$data || !isset($data['success']) ) {
             echo $curl->response;
             $this->error = '获取拉钩数据有误';
+            return false;
+        }
+        if (!isset($data['content'])) {
+            $this->error = '获取拉钩数据频繁';
             return false;
         }
         //只获取最新的5个
