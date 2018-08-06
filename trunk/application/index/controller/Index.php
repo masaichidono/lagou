@@ -29,6 +29,12 @@ class Index extends Controller
         echo '保存成功';
     }
 
+    public function add (){
+        $province_json = getProvinceData();
+        $this->assign('province_json', $province_json);
+        return $this->fetch();
+    }
+
     /**
      * 保存数据
      * @param $type

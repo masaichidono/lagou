@@ -5,6 +5,71 @@
     <title>拉钩数据</title>
 </head>
 <body>
-
+<div class="form-group row" style="text-align: center;">
+    <label class="col-lg-2 col-sm-3 col-xs-12 control-label "><span class="joy-star">*</span>所在省份</label>
+    <div class="col-lg-10 col-sm-9 col-xs-12 joy-province">
+        <select name="province" class="form-control input-sm joy-input-inline">
+            <option value="">选择省份</option>
+            {volist name="province_json" id="vo"}
+            <option value="{$vo['name']}">{$vo['name']}</option>
+            {/volist}
+        </select>
+        <select name="city" class="form-control input-sm joy-input-inline">
+            <option value="">选择城市</option>
+        </select>
+        <select name="district" class="form-control input-sm joy-input-inline">
+            <option value="">选择区县</option>
+        </select>
+    </div>
+</div>
 </body>
+
+<script type="text/javascript">
+    //选择省份
+    $(document).on('change', 'select[name=province]', function(){
+        //判断是否为空
+        var province = $(this).val();
+        if (!$.trim(province)) {
+            //清空城市和区县的选择
+            $('select[name=city]').html('<option value="">选择城市</option>');
+            $('select[name=district]').html('<option value="">选择区县</option>');
+            return false;
+        }
+        if (loading) return false;
+        loading = true;
+        //加载城市数据
+        var _html = '<option value="">选择城市</option>';
+        var tmp_city_arr = province_json[province]['city'];
+        for (var i in tmp_city_arr) {
+            var temp_name = tmp_city_arr[i]['name'];
+            _html += '<option value="'+ temp_name +'">' + temp_name + '</option>';
+        }
+        $('select[name=city]').html(_html);
+        loading = false;
+    });
+    //选择城市
+    $(document).on('change', 'select[name=city]', function(){
+        if (loading) return false;
+        loading  = true;
+        var city = $(this).val();
+        if (!$.trim(city)) {
+            //清空区县
+            $('select[name=district]').html('<option value="">选择区县</option>');
+            return false;
+        }
+        var province = $('select[name=province]').val();
+        var city_arr = province_json[province]['city'];
+        var _html    = '<option value="">选择区县</option>'
+        for (var i in city_arr) {
+            if (city_arr[i]['name'] == city) {
+                for (var j in city_arr[i]['area']) {
+                    _html += '<option value="'+ city_arr[i]['area'][j] +'">'+ city_arr[i]['area'][j] +'</option>';
+                }
+                break;
+            }
+        }
+        $('select[name=district]').html(_html);
+        loading = false;
+    });
+</script>
 </html>

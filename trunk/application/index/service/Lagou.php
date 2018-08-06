@@ -127,11 +127,11 @@ class Lagou
         $data = array(
             'first' => true,
             'pn'    => 1,
-            'kd'    => 'PHP',
+            'kd'    => '会计',
         );
         $curl->setHeader('Origin', 'https://www.lagou.com');
         $curl->setHeader('Host', 'www.lagou.com');
-        $curl->setHeader('Referer', 'https://www.lagou.com/jobs/list_PHP?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E');
+        $curl->setHeader('Referer', 'https://www.lagou.com/jobs/list_%E4%BC%9A%E8%AE%A1?px=default&city=%E5%B9%BF%E5%B7%9E');
         $curl->post($url, $data);
         if ($curl->error) {
             $this->error = $curl->error_message . '[' . $curl->error_code . ']';
@@ -139,7 +139,6 @@ class Lagou
         }
         $data = json_decode($curl->response, true);
         if (!$data || !isset($data['success']) ) {
-            echo $curl->response;
             $this->error = '获取拉钩数据有误';
             return false;
         }

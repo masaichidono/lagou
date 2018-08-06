@@ -245,7 +245,9 @@ return [
         'pwd'      => 'lonely85168908',
         'to_user'  => array(
             'offcn' => '1422810222@qq.com',
-            'lagou' => '335154882@qq.com',
+//            'lagou' => '335154882@qq.com',
+//            'lagou' => '2466935762@qq.com',
+            'lagou' => 'zm2466935762@163.com',
         )
     ),
     // +----------------------------------------------------------------------
@@ -253,7 +255,8 @@ return [
     // +----------------------------------------------------------------------
     'steal_url'    => [
         'offcn' => 'http://www.offcn.com/ylws/ksxx/p21.html',
-        'lagou' => 'https://www.lagou.com/jobs/positionAjax.json?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E&needAddtionalResult=false'
+//        'lagou' => 'https://www.lagou.com/jobs/positionAjax.json?gj=3%E5%B9%B4%E5%8F%8A%E4%BB%A5%E4%B8%8B&px=new&city=%E5%B9%BF%E5%B7%9E&needAddtionalResult=false',
+        'lagou' => 'https://www.lagou.com/jobs/positionAjax.json?px=default&city=%E5%B9%BF%E5%B7%9E&needAddtionalResult=false',
     ],
     'lagou_detail' => 'https://www.lagou.com/jobs/',
     'lagou_keys'   => array(
@@ -279,5 +282,14 @@ return [
         'first_type'         => 'firstType',
         'second_type'        => 'secondType',
         'linestation'        => 'linestaion',
-    )
+    ),
+    // +----------------------------------------------------------------------
+    // | 相关设置
+    // +----------------------------------------------------------------------
+    'qiniu_config' => [
+        'AccessKey' => '_E9XoUX6BgCvHwm4jfqsprr1voQZwy6_7pQe7cZJ',
+        'SecretKey' => 's8uqnasVDMMMOEj8ZwWxqAW5hAIIbZ4egAvGHpzD',
+        'bucket' => 'masaichi',
+        'domain' => 'http://pd1l02fhi.bkt.clouddn.com/'
+    ]
 ];

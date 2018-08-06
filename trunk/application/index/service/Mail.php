@@ -15,12 +15,7 @@ class Mail
 {
     public function __construct( $host, $username, $pwd, $to_user, $subject = '', $body = '', $alt_body = '' )
     {
-        dump($subject);
-        dump($to_user);
-        dump($pwd);
-        dump($subject);
-        dump($body);
-        dump($alt_body);
+        vendor('phpmailer/phpmailer/PHPMailer');
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         $mail->CharSet = 'utf-8';
         try {
@@ -31,8 +26,8 @@ class Mail
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
             $mail->Username = $username;                 // SMTP username
             $mail->Password = $pwd;                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 25;                                    // TCP port to connect to
+            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 465;                                    // TCP port to connect to
 
             //Recipients
             $mail->setFrom($username, 'masaichi');

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-queue" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-migration" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-installer" />
+      <path value="$PROJECT_DIR$/trunk/vendor/jaeger/querylist" />
+      <path value="$PROJECT_DIR$/trunk/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/trunk/vendor/composer" />
+      <path value="$PROJECT_DIR$/trunk/vendor/jaeger/phpquery-single" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-helper" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-image" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-captcha" />
+      <path value="$PROJECT_DIR$/trunk/vendor/topthink/think-mongo" />
+      <path value="$PROJECT_DIR$/trunk/vendor/jaeger/g-http" />
+      <path value="$PROJECT_DIR$/trunk/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/trunk/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/trunk/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/trunk/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/trunk/vendor/tightenco/collect" />
+      <path value="$PROJECT_DIR$/trunk/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/trunk/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/trunk/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/trunk/vendor/qiniu/php-sdk" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />
+</project>
